@@ -1,1 +1,20 @@
+<<<<<<< HEAD
 .settings
+=======
+# Eclipse
+.classpath
+.project
+.settings/
+
+# Intellij
+.idea/
+*.iml
+*.iws
+
+# Mac
+.DS_Store
+
+# Maven
+log/
+target/
+>>>>>>> 06da5ce1481e09c6e3b8e0f3eedb97b3a65d9096
