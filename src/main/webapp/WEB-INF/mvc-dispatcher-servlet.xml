@@ -10,15 +10,8 @@
 	<context:annotation-config />
 	<context:component-scan base-package="ro.tpjad.controller" />
 
-	<mvc:resources mapping="/pages/**" location="/WEB-INF/pages/" />
 	<mvc:annotation-driven />
 
-	<bean id="jspViewResolver"
-		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name="viewClass"
-			value="org.springframework.web.servlet.view.JstlView" />
-		<property name="prefix" value="/WEB-INF/pages/" />
-		<property name="suffix" value=".jsp" />
-	</bean>
+	<mvc:resources mapping="/static/**" location="/static/" />
 
 </beans>
