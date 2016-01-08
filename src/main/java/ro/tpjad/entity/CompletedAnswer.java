@@ -11,16 +11,15 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 @Entity
-@Table(name = "ANSWERS")
-public class Answer extends BaseEntity {
+@Table(name = "completed_answers")
+public class CompletedAnswer extends BaseEntity {
 
 	private String text;
 	private Question question;
+	private SurveyResult surveyResult;
 
-	public Answer() {
+	public CompletedAnswer() {
 		super();
 	}
 
@@ -39,18 +38,13 @@ public class Answer extends BaseEntity {
 	}
 
 	@Column(name = "ANSCRTTIME")
-	public void setCreateTime(Date createTime) {
-		super.setCreateTime(createTime);
-	}
-
-	@Column(name = "ANSCRTTIME")
 	public Date getCreateTime() {
 		return super.getCreateTime();
 	}
 
-	@Column(name = "ANSUPDTIME")
-	public void setUpdateTime(Date updateTime) {
-		super.setUpdateTime(updateTime);
+	@Column(name = "ANSCRTTIME")
+	public void setCreateTime(Date createTime) {
+		super.setCreateTime(createTime);
 	}
 
 	@Column(name = "ANSUPDTIME")
@@ -58,48 +52,63 @@ public class Answer extends BaseEntity {
 		return super.getUpdateTime();
 	}
 
-	@Column(name = "ANSCRTUSR")
-	public void setCreateUser(String createUser) {
-		super.setCreateUser(createUser);
+	@Column(name = "ANSUPDTIME")
+	public void setUpdateTime(Date updateTime) {
+		super.setUpdateTime(updateTime);
 	}
 
-	@Column(name = "ANSCRTUSR")
+	@Column(name = "ANSCRTUSER")
 	public String getCreateUser() {
 		return super.getCreateUser();
 	}
 
-	@Column(name = "ANSUPDUSR")
-	public void setUpdateUser(String updateUser) {
-		super.setCreateUser(updateUser);
+	@Column(name = "ANSCRTUSER")
+	public void setCreateUser(String createUser) {
+		super.setCreateUser(createUser);
 	}
 
-	@Column(name = "ANSUPDUSR")
+	@Column(name = "ANSUPDUSER")
 	public String getUpdateUser() {
 		return super.getUpdateUser();
 	}
 
-	@Column(name = "ANSTEXT")
+	@Column(name = "ANSUPDUSER")
+	public void setUpdateUser(String updateUser) {
+		super.setUpdateUser(updateUser);
+	}
+
+	@Column(name = "ANSTXT")
 	public String getText() {
 		return text;
 	}
 
-	@Column(name = "ANSTEXT")
+	@Column(name = "ANSTXT")
 	public void setText(String text) {
 		this.text = text;
 	}
 
-	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name = "ANSQST")
 	public Question getQuestion() {
 		return question;
 	}
 
-	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name = "ANSQST")
 	public void setQuestion(Question question) {
 		this.question = question;
+	}
+
+	@ManyToOne
+	@JoinColumn(name = "ANSSRV")
+	public SurveyResult getSurveyResult() {
+		return surveyResult;
+	}
+
+	@ManyToOne
+	@JoinColumn(name = "ANSSRV")
+	public void setSurveyResult(SurveyResult surveyResult) {
+		this.surveyResult = surveyResult;
 	}
 
 }

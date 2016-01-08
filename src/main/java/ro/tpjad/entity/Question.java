@@ -1,25 +1,33 @@
 package ro.tpjad.entity;
 
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
+
+import org.apache.commons.lang3.StringUtils;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "QUESTIONS")
 public class Question extends BaseEntity {
 
 	private String text;
-	private List<Answer> correctAnswers = new ArrayList<Answer>();
+	private QuestionType type;
+	private String possibleAnswers;
+	private Survey survey;
 
 	public Question() {
 		super();
@@ -59,44 +67,82 @@ public class Question extends BaseEntity {
 		return super.getUpdateTime();
 	}
 
-	@Column(name = "QSTCRTUSR")
+	@Column(name = "QSTCRTUSER")
 	public void setCreateUser(String createUser) {
 		super.setCreateUser(createUser);
 	}
 
-	@Column(name = "QSTCRTUSR")
+	@Column(name = "QSTCRTUSER")
 	public String getCreateUser() {
 		return super.getCreateUser();
 	}
 
-	@Column(name = "QSTUPDUSR")
+	@Column(name = "QSTUPDUSER")
 	public void setUpdateUser(String updateUser) {
 		super.setCreateUser(updateUser);
 	}
 
-	@Column(name = "QSTUPDUSR")
+	@Column(name = "QSTUPDUSER")
 	public String getUpdateUser() {
 		return super.getUpdateUser();
 	}
 
-	@Column(name = "QSTTEXT")
+	@Column(name = "QSTTXT")
 	public String getText() {
 		return text;
 	}
 
-	@Column(name = "QSTTEXT")
+	@Column(name = "QSTTXT")
 	public void setText(String text) {
 		this.text = text;
 	}
 
-	@OneToMany(mappedBy = "question", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	public List<Answer> getCorrectAnswers() {
-		return correctAnswers;
+	@Column(name = "QSTTYPE")
+	@Enumerated(EnumType.STRING)
+	public QuestionType getType() {
+		return type;
 	}
 
-	@OneToMany(mappedBy = "question", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	public void setCorrectAnswers(List<Answer> correctAnswers) {
-		this.correctAnswers = correctAnswers;
+	@Column(name = "QSTTYPE")
+	@Enumerated(EnumType.STRING)
+	public void setType(QuestionType type) {
+		this.type = type;
+	}
+
+	@Column(name = "QSTANS")
+	@JsonIgnore
+	public String getPossibleAnswers() {
+		return possibleAnswers;
+	}
+
+	@Column(name = "QSTANS")
+	@JsonIgnore
+	public void setPossibleAnswers(String possibleAnswers) {
+		this.possibleAnswers = possibleAnswers;
+	}
+
+	@Transient
+	public List<String> getPossibleAnswersList() {
+		return Arrays.asList(possibleAnswers.split(";"));
+	}
+
+	@Transient
+	public void setPossibleAnswers(List<String> answers) {
+		this.possibleAnswers = StringUtils.join(answers, ";");
+	}
+
+	@JsonIgnore
+	@ManyToOne
+	@JoinColumn(name = "QSTSVY")
+	public Survey getSurvey() {
+		return survey;
+	}
+
+	@JsonIgnore
+	@ManyToOne
+	@JoinColumn(name = "QSTSVY")
+	public void setSurvey(Survey survey) {
+		this.survey = survey;
 	}
 
 }
