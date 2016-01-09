@@ -33,6 +33,7 @@ public class SurveyServiceImpl implements SurveyService {
 	@Transactional(readOnly = true)
 	public List<Survey> getAllSurveys() {
 		List<Survey> surveys = surveyDao.getAllSurveys();
+		System.out.println("getAllSurveys Service: " + surveys);
 		for (Survey survey : surveys) {
 			Hibernate.initialize(survey.getQuestions());
 		}

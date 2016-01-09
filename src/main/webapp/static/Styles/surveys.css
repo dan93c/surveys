@@ -1,0 +1,28 @@
+body{
+	background-color: #C0C0C0;
+}
+
+.centralsurveys{
+	position:absolute;
+    width:800px;
+    height:800px;
+    z-index:15;
+    top:40%;
+    left:30%;
+    margin:-100px 0 0 -150px;
+}
+
+h1 {
+font-family:georgia,serif;
+font-size:35px;
+font-style:italic;
+color:#3E2F2F;
+letter-spacing:0;
+line-height:1.429em;
+padding:0;
+text-align:center;
+}
+
+.table{
+	background-color: #FFFFFF;
+}

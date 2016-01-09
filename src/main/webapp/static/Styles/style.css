@@ -1,0 +1,84 @@
+
+body{
+    background: #A8A8A8  ;
+}
+
+.firsttext{
+	text-align: center;
+}
+
+h1 {
+font-family:Baskerville,Times,’Times New Roman’,serif;
+font-size:50px;
+/*color:#589017; */
+color: #0033CC;
+font-variant:small-caps;
+text-align:center;
+font-weight:bold;
+padding:15px 0px 15px 0px; /* Tweak this to your liking */
+}
+
+.central{
+	 position:absolute;
+     width:400px;
+     height:400px;
+     z-index:15;
+     top:40%;
+     left:45%;
+     margin:-100px 0 0 -150px;
+}
+
+.top{
+	 position:absolute;
+     width:800px;
+     height:100px;
+     z-index:15;
+     top:15%;
+     left:33%;
+     margin:-100px 0 0 -150px;
+}
+
+/*style for background*/
+.homepage-hero-module {
+    border-right: none;
+    border-left: none;
+    position: relative;
+}
+.no-video .video-container video,
+.touch .video-container video {
+    display: none;
+}
+.no-video .video-container .poster,
+.touch .video-container .poster {
+    display: block !important;
+}
+.video-container {
+    position: relative;
+    bottom: 0%;
+    left: 0%;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    background: #000;
+}
+.video-container .poster img {
+    width: 100%;
+    bottom: 0;
+    position: absolute;
+}
+.video-container .filter {
+    z-index: 100;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.4);
+    width: 100%;
+}
+.video-container video {
+    position: absolute;
+    z-index: 0;
+    bottom: 0;
+}
+.video-container video.fillWidth {
+    width: 100%;
+}
+
+

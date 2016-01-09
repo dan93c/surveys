@@ -5,34 +5,34 @@ insert into `surveys`(SVYNAME, SVYDSC, SVYCRTTIME, SVYCRTUSER)
 select * from surveys;
 
 insert into `questions` (QSTTXT, QSTTYPE, QSTANS, QSTCRTTIME, QSTCRTUSER, QSTSVY)
-	values('Ceilalti ma intrerup tot timpul.', 'selectOne', 
+	values('Ceilalti ma intrerup tot timpul.', 'SELECT_ONE', 
     'Total adevarat;Destul de adevarat;Mai mult fals;Total fals', '2016-01-08 18:34:35', 'admin', 1);
 insert into `questions` (QSTTXT, QSTTYPE, QSTANS, QSTCRTTIME, QSTCRTUSER, QSTSVY)
-	values('Atunci cand sunt intrerupt imi este greu sa revin la ceea ce faceam.', 'selectOne', 
+	values('Atunci cand sunt intrerupt imi este greu sa revin la ceea ce faceam.', 'SELECT_ONE', 
     'Total adevarat;Destul de adevarat;Mai mult fals;Total fals', '2016-01-08 18:34:35', 'admin', 1);
 insert into `questions` (QSTTXT, QSTTYPE, QSTANS, QSTCRTTIME, QSTCRTUSER, QSTSVY)
-	values('Atunci cand cineva ma intrerupe imi este greu sa-i spun sa ma lase sa revin la ceea ce lucram.', 'selectOne', 
+	values('Atunci cand cineva ma intrerupe imi este greu sa-i spun sa ma lase sa revin la ceea ce lucram.', 'SELECT_ONE', 
     'Total adevarat;Destul de adevarat;Mai mult fals;Total fals', '2016-01-08 18:34:35', 'admin', 1);
 insert into `questions` (QSTTXT, QSTTYPE, QSTANS, QSTCRTTIME, QSTCRTUSER, QSTSVY)
-	values('Mi se intampla frecvent sa imi fie distrasa atentia.', 'selectOne', 
+	values('Mi se intampla frecvent sa imi fie distrasa atentia.', 'SELECT_ONE', 
     'Total adevarat;Destul de adevarat;Mai mult fals;Total fals', '2016-01-08 18:34:35', 'admin', 1);
 insert into `questions` (QSTTXT, QSTTYPE, QSTANS, QSTCRTTIME, QSTCRTUSER, QSTSVY)
-	values('Imi este greu sa ma concentrez.', 'selectOne', 
+	values('Imi este greu sa ma concentrez.', 'SELECT_ONE', 
     'Total adevarat;Destul de adevarat;Mai mult fals;Total fals', '2016-01-08 18:34:35', 'admin', 1);
 insert into `questions` (QSTTXT, QSTTYPE, QSTANS, QSTCRTTIME, QSTCRTUSER, QSTSVY)
-	values('Deseori le cer celorlalti sa repete ce au spus', 'selectOne', 
+	values('Deseori le cer celorlalti sa repete ce au spus', 'SELECT_ONE', 
     'Total adevarat;Destul de adevarat;Mai mult fals;Total fals', '2016-01-08 18:34:35', 'admin', 1);
 insert into `questions` (QSTTXT, QSTTYPE, QSTANS, QSTCRTTIME, QSTCRTUSER, QSTSVY)
-	values('Visez mult cu ochii deschisi.', 'selectOne', 
+	values('Visez mult cu ochii deschisi.', 'SELECT_ONE', 
     'Total adevarat;Destul de adevarat;Mai mult fals;Total fals', '2016-01-08 18:34:35', 'admin', 1);
 insert into `questions` (QSTTXT, QSTTYPE, QSTANS, QSTCRTTIME, QSTCRTUSER, QSTSVY)
-	values('La sfarsitul zilei ma simt adesea frustrat, deoarece nu am reusit sa duc ceva pana la capat.', 'selectOne', 
+	values('La sfarsitul zilei ma simt adesea frustrat, deoarece nu am reusit sa duc ceva pana la capat.', 'SELECT_ONE', 
     'Total adevarat;Destul de adevarat;Mai mult fals;Total fals', '2016-01-08 18:34:35', 'admin', 1);
 insert into `questions` (QSTTXT, QSTTYPE, QSTANS, QSTCRTTIME, QSTCRTUSER, QSTSVY)
-	values('Ma simt adesea imprastiat si ineficient.', 'selectOne', 
+	values('Ma simt adesea imprastiat si ineficient.', 'SELECT_ONE', 
     'Total adevarat;Destul de adevarat;Mai mult fals;Total fals', '2016-01-08 18:34:35', 'admin', 1);
 insert into `questions` (QSTTXT, QSTTYPE, QSTANS, QSTCRTTIME, QSTCRTUSER, QSTSVY)
-	values('Cand cineva vine in biroul meu se simte foarte confortabil.', 'selectOne', 
+	values('Cand cineva vine in biroul meu se simte foarte confortabil.', 'SELECT_ONE', 
     'Total adevarat;Destul de adevarat;Mai mult fals;Total fals', '2016-01-08 18:34:35', 'admin', 1);
 select * from `questions`;
 
