@@ -1,0 +1,33 @@
+body{
+	background-image: url("../background/Snapshots/Working-it.jpg");
+	background-color: #C0C0C0;
+}
+
+h1 {
+font-family:georgia,serif;
+font-size:35px;
+font-style:italic;
+color:#3E2F2F;
+letter-spacing:0;
+line-height:1.429em;
+padding:0;
+text-align:center;
+padding-bottom: 1cm;
+}
+
+.addSurveyForm{
+	width: 80%;
+	/*background-color: #D8D8D8;*/
+    background: rgba(216,216,216,0.7) ;
+}
+
+
+.centralform{
+	position:absolute;
+    width:750px;
+    height:auto;
+    z-index:15;
+    top:30%;
+    left:37%;
+    margin:-100px 0 0 -150px;
+}

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="../Styles/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../Styles/takesurvey.css">
+	</head>
+
+	<body>
+
+    <h1>Take survey</h1>
+
+    <form class="form-horizontal takeSurveyForm centralform">
+    <fieldset>
+
+    <!-- Form Name -->
+    <legend>Please respond to the below questions</legend>
+
+    <!-- Text input-->
+    <div class="form-group">
+      <label class="col-md-6 control-label" for="">1. Question test test test test?</label>  
+    </div>
+
+    <!-- Multiple Radios -->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="radiosResponse">Response</label>
+      <div class="col-md-4">
+      <div class="radio">
+        <label for="radiosResponse-0">
+          <input type="radio" name="radiosResponse" id="radiosResponse-0" value="1" checked="checked">
+          Option one
+        </label>
+      </div>
+      <div class="radio">
+        <label for="radiosResponse-1">
+          <input type="radio" name="radiosResponse" id="radiosResponse-1" value="2">
+          Option two
+        </label>
+      </div>
+      <div class="radio">
+        <label for="radiosResponse-2">
+          <input type="radio" name="radiosResponse" id="radiosResponse-2" value="3">
+          Option three
+        </label>
+      </div>
+      <div class="radio">
+        <label for="radiosResponse-3">
+          <input type="radio" name="radiosResponse" id="radiosResponse-3" value="4">
+          Option four
+        </label>
+      </div>
+      </div>
+    </div>
+
+    <!-- Multiple Checkboxes -->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="checkboxesResponse">Response</label>
+      <div class="col-md-4">
+      <div class="checkbox">
+        <label for="checkboxesResponse-0">
+          <input type="checkbox" name="checkboxesResponse" id="checkboxesResponse-0" value="1">
+          Option one
+        </label>
+      </div>
+      <div class="checkbox">
+        <label for="checkboxesResponse-1">
+          <input type="checkbox" name="checkboxesResponse" id="checkboxesResponse-1" value="2">
+          Option two
+        </label>
+      </div>
+      <div class="checkbox">
+        <label for="checkboxesResponse-2">
+          <input type="checkbox" name="checkboxesResponse" id="checkboxesResponse-2" value="3">
+          Option three
+        </label>
+      </div>
+      <div class="checkbox">
+        <label for="checkboxesResponse-3">
+          <input type="checkbox" name="checkboxesResponse" id="checkboxesResponse-3" value="4">
+          Option four
+        </label>
+      </div>
+      </div>
+    </div>
+
+    <!-- Textarea -->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="textareaResponse">Response</label>
+      <div class="col-md-4">                     
+        <textarea class="form-control" id="textareaResponse" name="textareaResponse" placeholder="Insert your text here"></textarea>
+      </div>
+    </div>
+
+    <!-- Button -->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="submitButton"></label>
+      <div class="col-md-4">
+        <button id="submitButton" name="submitButton" class="btn btn-primary">Submit</button>
+      </div>
+    </div>
+
+    </fieldset>
+
+    </form>
+
+
+	</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="../Styles/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../Styles/addsurvey.css">
+	</head>
+
+	<body>
+
+    <h1>Add survey</h1>
+
+    <form class="form-horizontal addSurveyForm centralform">
+    <fieldset>
+
+      <!-- Form Name -->
+      <legend></legend>
+
+      <!-- Text input-->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="textinput">Name</label>  
+          <div class="col-md-6">
+        <input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md" required="">       
+      </div>
+    </div>
+
+    <!-- Text input-->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="textinput">Username</label>  
+      <div class="col-md-6">
+        <input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md" required="">       
+      </div>
+    </div>
+
+    <!-- Text input-->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="textinput">Description</label>  
+      <div class="col-md-6">
+        <input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md" required="">   
+      </div>
+    </div>
+
+
+    <div class="addQuestionDiv">
+      &nbsp;
+      <!-- Text input-->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="textQuestion">Question 1</label>  
+        <div class="col-md-6">
+          <input id="textQuestion" name="textQuestion" type="text" placeholder="" class="form-control input-md" required="">      
+        </div>
+      </div>
+
+      <!-- Text input-->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="textType">Type</label>  
+        <div class="col-md-6">
+          <select id="TypeId" name="TypeName" class="form-control input-md">
+            <option value="volvo">Option 1</option>
+            <option value="saab">Option 2</option>
+            <option value="mercedes">Option 3</option>
+            <option value="audi">Option 4</option>
+          </select>       
+        </div>
+      </div>
+
+      <!-- Text input-->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="textResponse">Response</label>  
+        <div class="col-md-6">
+          <input id="textResponse" name="textResponse" type="text" placeholder="" class="form-control input-md" required="">       
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="textResponse"></label>  
+      <div class="col-md-6">
+        <a href="#">+Add question</href>       
+      </div>
+    </div>
+
+
+    <!-- Button -->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="submit"></label>
+      <div class="col-md-4">
+        <button id="submit" name="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </div>
+
+
+    </fieldset>
+    </form>
+
+	</body>
+</html>
+
+
+
+
+<!-- - adaug intrebarea, + add question...se deschide input pentru alta intrebare -->
+
+<!-- - pagina de rezultate arata la fel ca pagina take survey-open, doar ca inputurile sunt read only -->
+
