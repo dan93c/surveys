@@ -38,7 +38,8 @@ public class SurveyDAOImpl implements SurveyDAO {
 
 	@Override
 	public void deleteSurvey(Survey survey) {
-		getEntityManager().remove(survey);
+		Survey surveyToBeDeleted = getEntityManager().merge(survey);
+		getEntityManager().remove(surveyToBeDeleted);
 	}
 
 	@SuppressWarnings("unchecked")

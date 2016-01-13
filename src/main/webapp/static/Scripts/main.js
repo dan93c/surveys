@@ -1,6 +1,7 @@
 //jQuery is required to run this code
 $(document).ready(function() {
 
+	getSurveyQuestions();
     scaleVideoContainer();
 
     initBannerVideoSize('.video-container .poster img');
@@ -62,7 +63,8 @@ function scaleBannerVideoSize(element){
     });
 }
 
-function goToPage(page) {
-	console.log("Entered goToPage with:" + page);
-	window.location = "static/html/" + page;
+function getSurveyQuestions(){
+	surveyId = sessionStorage.getItem('surveyId');
+	console.log("SurveyId : " , surveyId);
+	jQuery('#mainDiv').append("<p>HeeeY</p>");
 }

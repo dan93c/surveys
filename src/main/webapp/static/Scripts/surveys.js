@@ -23,7 +23,15 @@ function appendSurveysToTable(surveys) {
 	for (var i = 0; i < surveys.length; i++) {
 		var currentSurvey = surveys[i];
 		var tableRow = '<tr><td>' + currentSurvey.id + '</td><td>'
-				+ currentSurvey.name + '<td class="centeralign"><a href="#">Open</a><a href="#">Delete</a></td></tr>';
+				+ currentSurvey.name
+				+ '<td class="centeralign"><button onclick="openSurvey('
+				+ currentSurvey.id
+				+ ');">Open</button></td></tr>';
 		jQuery('#surveysTable tr:last').after(tableRow);
 	}
+}
+
+function openSurvey(id) {
+	sessionStorage.setItem('surveyId',id);
+	goToPage("main.html", false);
 }

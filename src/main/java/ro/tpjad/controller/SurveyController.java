@@ -53,4 +53,12 @@ public class SurveyController {
 	public @ResponseBody Survey findSurvey(@RequestParam String id) {
 		return surveyService.findSurvey(Long.parseLong(id));
 	}
+	
+	@RequestMapping(value = "/deleteSurvey", method = RequestMethod.POST)
+	public @ResponseBody List<Survey> deleteSurvey(@RequestBody Survey survey) {
+		surveyService.deleteSurvey(survey);
+		
+		return surveyService.getAllSurveys();
+	}
+
 }
