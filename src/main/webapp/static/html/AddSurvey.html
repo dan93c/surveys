@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<script src="../Scripts/jquery-2.2.0.min.js"></script>
+		<script src="../Scripts/common.js"></script>
+		<script src="../Scripts/addSurvey.js"></script>
 		<link rel="stylesheet" type="text/css" href="../Styles/bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="../Styles/addsurvey.css">
+    	<link rel="stylesheet" type="text/css" href="../Styles/addsurvey.css">
 	</head>
 
 	<body>
@@ -17,15 +20,15 @@
 
       <!-- Text input-->
       <div class="form-group">
-        <label class="col-md-4 control-label" for="textinput">Name</label>  
+        <label class="col-md-4 control-label" for="nameTextInput">Name</label>  
           <div class="col-md-6">
-        <input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md" required="">       
+        <input id="nameTextInput" name="nameTextInput" type="text" placeholder="" class="form-control input-md" required="">       
       </div>
     </div>
 
     <!-- Text input-->
     <div class="form-group">
-      <label class="col-md-4 control-label" for="textinput">Username</label>  
+      <label class="col-md-4 control-label" for="userName">Username</label>  
       <div class="col-md-6">
         <input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md" required="">       
       </div>
@@ -33,20 +36,20 @@
 
     <!-- Text input-->
     <div class="form-group">
-      <label class="col-md-4 control-label" for="textinput">Description</label>  
+      <label class="col-md-4 control-label" for="descriptionTextInput">Description</label>  
       <div class="col-md-6">
-        <input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md" required="">   
+        <input id="descriptionTextInput" name="descriptionTextInput" type="text" placeholder="" class="form-control input-md" required="">   
       </div>
     </div>
 
 
-    <div class="addQuestionDiv">
+    <div id="addQuestionDivId" class="addQuestionDiv">
       &nbsp;
       <!-- Text input-->
       <div class="form-group">
-        <label class="col-md-4 control-label" for="textQuestion">Question 1</label>  
+        <label class="col-md-4 control-label" for="textQuestion1">Question 1</label>  
         <div class="col-md-6">
-          <input id="textQuestion" name="textQuestion" type="text" placeholder="" class="form-control input-md" required="">      
+          <input id="textQuestion1" name="textQuestion1" type="text" placeholder="" class="form-control input-md" required="">      
         </div>
       </div>
 
@@ -54,20 +57,19 @@
       <div class="form-group">
         <label class="col-md-4 control-label" for="textType">Type</label>  
         <div class="col-md-6">
-          <select id="TypeId" name="TypeName" class="form-control input-md">
-            <option value="volvo">Option 1</option>
-            <option value="saab">Option 2</option>
-            <option value="mercedes">Option 3</option>
-            <option value="audi">Option 4</option>
+          <select id="TypeId1" name="TypeName1" class="form-control input-md" onchange="changeType();">
+            <option value="FREE_TEXT">Free text</option>
+            <option value="SELECT_ONE">Select answer</option>
+            <option value="SELECT_MULTIPLE">Multiple choice</option>
           </select>       
         </div>
       </div>
 
       <!-- Text input-->
       <div class="form-group">
-        <label class="col-md-4 control-label" for="textResponse">Response</label>  
+        <label class="col-md-4 control-label" for="textResponse1">Response</label>  
         <div class="col-md-6">
-          <input id="textResponse" name="textResponse" type="text" placeholder="" class="form-control input-md" required="">       
+          <input id="textResponse1" name="textResponse" type="text" placeholder="" class="form-control input-md" required="">       
         </div>
       </div>
     </div>
@@ -75,7 +77,7 @@
     <div class="form-group">
       <label class="col-md-4 control-label" for="textResponse"></label>  
       <div class="col-md-6">
-        <a href="#">+Add question</href>       
+        <button onclick="addQuestion();">Add question</button>       
       </div>
     </div>
 
@@ -84,7 +86,7 @@
     <div class="form-group">
       <label class="col-md-4 control-label" for="submit"></label>
       <div class="col-md-4">
-        <button id="submit" name="submit" class="btn btn-primary">Submit</button>
+        <button id="submit" name="submit" class="btn btn-primary" onclick="addSurvey();">Submit</button>
       </div>
     </div>
 
