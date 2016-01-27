@@ -7,31 +7,86 @@ function goToPage(page, fromFirstPage) {
 	}
 }
 
-function createQuestion(number) {
+function createQuestion(number, type) {
 	var question = '<div class="form-group">';
-	question += '<label class="col-md-4 control-label" for="textQuestion'+ number + '">Question' + number + '</label>';
+	question += '<label class="col-md-4 control-label" for="textQuestion'
+			+ number + '">Question' + number + '</label>';
 	question += '<div class="col-md-6">';
-	question += '<input id="textQuestion'+ number + '" name="textQuestion'+ number + '" type="text" placeholder="" class="form-control input-md" required="">';
+	question += '<input id="textQuestion'
+			+ number
+			+ '" name="textQuestion'
+			+ number
+			+ '" type="text" placeholder="" class="form-control input-md" required="">';
 	question += '</div>';
 	question += '</div>';
 	question += '<div class="form-group">';
 	question += '<label class="col-md-4 control-label" for="textType">Type</label>';
 	question += '<div class="col-md-6">';
-	question += '<select id="TypeId'+ number + '" name="TypeName'+ number + '" class="form-control input-md" onchange="changeType();">';
+	question += '<select id="TypeId' + number + '" name="TypeName' + number
+			+ '" class="form-control input-md" onchange="changeType(this);">';
 	question += '<option value="FREE_TEXT">Free text</option>';
 	question += '<option value="SELECT_ONE">Select answer</option>';
 	question += '<option value="SELECT_MULTIPLE">Multiple choice</option>';
 	question += '</select>';
 	question += '</div>';
 	question += '</div>';
-	question += '<div class="form-group">';
-	question += '<label class="col-md-4 control-label" for="textResponse'+ number + '">Response</label>';
-	question += '<div class="col-md-6">';
-	question += '<input id="textResponse'+ number + '" name="textResponse'+ number + '" type="text" placeholder="" class="form-control input-md" required="">';
+	if (type != "FREE_TEXT") {
+		question += '<div id="responseDiv' + number + '" class="form-group">';
+		question += '<label class="col-md-4 control-label" for="textResponse'
+				+ number + '">Response</label>';
+		question += '<div class="col-md-6">';
+		question += '<input id="textResponse'
+				+ number
+				+ '" name="textResponse'
+				+ number
+				+ '" type="text" placeholder="" class="form-control input-md" required="">';
+		question += '</div>';
+		question += '</div>';
+
+	}
 	question += '</div>';
-	question += '</div>';
-	question += '</div>';
-	
+
 	return question;
-		
+
+}
+
+function changeType(element) {
+	var type = element.value;
+	var responseDiv = "";
+	var number = getNumberOfAparitions();
+	if (type != "FREE_TEXT") {
+		if (document.getElementById("responseDiv" + number) == null) {
+			responseDiv += '<div id="responseDiv' + number + '" class="form-group">';
+			responseDiv += '<label class="col-md-4 control-label" for="textResponse'
+					+ number + '">Response</label>';
+			responseDiv += '<div class="col-md-6">';
+			responseDiv += '<input id="textResponse'
+					+ number
+					+ '" name="textResponse'
+					+ number
+					+ '" type="text" placeholder="" class="form-control input-md" required="">';
+			responseDiv += '</div>';
+			responseDiv += '</div>';
+		}
+
+	} else {
+		var divId = 'responseDiv' + number;
+		console.log(divId);
+		if (document.getElementById(divId) != null) {
+			jQuery('#' + divId).remove();
+		}
+	}
+
+	if (responseDiv != "") {
+		jQuery('#addQuestionDivId').append(responseDiv);
+	}
+}
+
+function getNumberOfAparitions() {
+	appears = 0;
+	$('*[id*=textQuestion]:visible').each(function() {
+		appears++;
+	});
+
+	return appears;
 }

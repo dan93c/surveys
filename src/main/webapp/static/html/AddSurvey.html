@@ -57,7 +57,7 @@
       <div class="form-group">
         <label class="col-md-4 control-label" for="textType">Type</label>  
         <div class="col-md-6">
-          <select id="TypeId1" name="TypeName1" class="form-control input-md" onchange="changeType();">
+          <select id="TypeId1" name="TypeName1" class="form-control input-md" onchange="changeType(this);">
             <option value="FREE_TEXT">Free text</option>
             <option value="SELECT_ONE">Select answer</option>
             <option value="SELECT_MULTIPLE">Multiple choice</option>
@@ -66,12 +66,7 @@
       </div>
 
       <!-- Text input-->
-      <div class="form-group">
-        <label class="col-md-4 control-label" for="textResponse1">Response</label>  
-        <div class="col-md-6">
-          <input id="textResponse1" name="textResponse" type="text" placeholder="" class="form-control input-md" required="">       
-        </div>
-      </div>
+      
     </div>
 
     <div class="form-group">

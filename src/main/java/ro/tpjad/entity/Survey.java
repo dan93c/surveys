@@ -13,6 +13,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+
 @Entity
 @Table(name = "SURVEYS")
 public class Survey extends BaseEntity {
@@ -112,4 +114,10 @@ public class Survey extends BaseEntity {
 	public void addQuestion(Question question) {
 		this.questions.add(question);
 	}
+
+	@Override
+	public String toString() {
+		return ToStringBuilder.reflectionToString(this);
+	}
+
 }

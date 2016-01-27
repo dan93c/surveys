@@ -25,8 +25,10 @@ public class SurveyController {
 	SurveyResultService surveyResultService;
 
 	@RequestMapping(value = "/addSurvey", method = RequestMethod.POST)
-	public void addSurvey(@RequestBody Survey survey) {
+	public @ResponseBody String addSurvey(@RequestBody Survey survey) {
 		surveyService.addSurvey(survey);
+		
+		return "{\"success\":1}";
 	}
 
 	@RequestMapping(value = "/addSurveyResult", method = RequestMethod.POST)
