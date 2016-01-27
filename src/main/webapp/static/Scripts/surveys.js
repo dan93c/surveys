@@ -10,10 +10,10 @@ function getSurveys() {
 		url : "/Surveys/getAllSurveys",
 		accept : "application/json",
 		success : function(response) {
-			appendSurveysToTable(response);
+			appendSurveysToTable(response.data);
 		},
 		error : function(response) {
-			console.log("Error:" + response);
+			handleErrors(result, "");
 		}
 	});
 }

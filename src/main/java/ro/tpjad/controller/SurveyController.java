@@ -1,5 +1,6 @@
 package ro.tpjad.controller;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import ro.tpjad.entity.JsonEntityResponse;
 import ro.tpjad.entity.Survey;
 import ro.tpjad.entity.SurveyResult;
 import ro.tpjad.service.SurveyResultService;
@@ -25,40 +27,90 @@ public class SurveyController {
 	SurveyResultService surveyResultService;
 
 	@RequestMapping(value = "/addSurvey", method = RequestMethod.POST)
-	public void addSurvey(@RequestBody Survey survey) {
-		surveyService.addSurvey(survey);
+	public @ResponseBody JsonEntityResponse addSurvey(@RequestBody Survey survey) {
+		JsonEntityResponse response = null;
+		try {
+			survey.setCreateTime(new Date());
+			surveyService.addSurvey(survey);
+			response = new JsonEntityResponse(true);
+		} catch (Exception ex) {
+			response = new JsonEntityResponse(false, ex.getMessage());
+		}
+		return response;
 	}
 
 	@RequestMapping(value = "/addSurveyResult", method = RequestMethod.POST)
-	public void addSurvey(@RequestBody SurveyResult surveyResult) {
-		surveyResultService.addSurveyResult(surveyResult);
+	public @ResponseBody JsonEntityResponse addSurvey(@RequestBody SurveyResult surveyResult) {
+		JsonEntityResponse response = null;
+		try {
+			surveyResultService.addSurveyResult(surveyResult);
+			response = new JsonEntityResponse(true);
+		} catch (Exception ex) {
+			response = new JsonEntityResponse(false, ex.getMessage());
+		}
+		return response;
 	}
 
 	@RequestMapping(value = "/getAllSurveys", method = RequestMethod.GET)
-	public @ResponseBody List<Survey> getAllSurveys() {
-		return surveyService.getAllSurveys();
+	public @ResponseBody JsonEntityResponse getAllSurveys() {
+		JsonEntityResponse response = null;
+		try {
+			List<Survey> surveys = surveyService.getAllSurveys();
+			response = new JsonEntityResponse(true, null, surveys);
+		} catch (Exception ex) {
+			response = new JsonEntityResponse(false, ex.getMessage());
+		}
+		return response;
 	}
 
 	@RequestMapping(value = "/getAllSurveyResults", method = RequestMethod.GET)
-	public @ResponseBody List<SurveyResult> getAllSurveyResults() {
-		return surveyResultService.getAllSurveyResults();
+	public @ResponseBody JsonEntityResponse getAllSurveyResults() {
+		JsonEntityResponse response = null;
+		try {
+			List<SurveyResult> results = surveyResultService.getAllSurveyResults();
+			response = new JsonEntityResponse(true, null, results);
+		} catch (Exception ex) {
+			response = new JsonEntityResponse(false, ex.getMessage());
+		}
+		return response;
 	}
 
 	@RequestMapping(value = "/findSurveyResult", method = RequestMethod.GET)
-	public @ResponseBody SurveyResult findSurveyResult(@RequestParam String id) {
-		return surveyResultService.findSurveyResult(Long.parseLong(id));
+	public @ResponseBody JsonEntityResponse findSurveyResult(@RequestParam String id) {
+		JsonEntityResponse response = null;
+		try {
+			SurveyResult result = surveyResultService.findSurveyResult(Long.parseLong(id));
+			response = new JsonEntityResponse(true, null, result);
+		} catch (Exception ex) {
+			response = new JsonEntityResponse(false, ex.getMessage());
+		}
+		return response;
 	}
 
 	@RequestMapping(value = "/findSurvey", method = RequestMethod.GET)
-	public @ResponseBody Survey findSurvey(@RequestParam String id) {
-		return surveyService.findSurvey(Long.parseLong(id));
+	public @ResponseBody JsonEntityResponse findSurvey(@RequestParam String id) {
+		JsonEntityResponse response = null;
+		try {
+			Survey survey = surveyService.findSurvey(Long.parseLong(id));
+			response = new JsonEntityResponse(true, null, survey);
+		} catch (Exception ex) {
+			response = new JsonEntityResponse(false, ex.getMessage());
+		}
+		return response;
 	}
-	
-	@RequestMapping(value = "/deleteSurvey", method = RequestMethod.POST)
-	public @ResponseBody List<Survey> deleteSurvey(@RequestBody Survey survey) {
-		surveyService.deleteSurvey(survey);
-		
-		return surveyService.getAllSurveys();
-	}
+
+//	@RequestMapping(value = "/deleteSurvey", method = RequestMethod.POST)
+//	public @ResponseBody List<Survey> deleteSurvey(@RequestBody Survey survey) {
+//		JsonEntityResponse response = null;
+//		try {
+//			surveyService.deleteSurvey(survey);
+//
+//			return surveyService.getAllSurveys();
+//			response = new JsonEntityResponse(true);
+//		} catch (Exception ex) {
+//			response = new JsonEntityResponse(false, ex.getMessage());
+//		}
+//		return response;
+//	}
 
 }

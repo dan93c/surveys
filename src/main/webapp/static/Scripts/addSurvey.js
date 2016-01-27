@@ -1,67 +1,58 @@
 function addQuestion() {
-	var nextElement = getNumberOfAparitions() + 1;
+	var numberOfApparitions = getNumberOfAparitions();
+	var nextElement = numberOfApparitions + 1;
 
-	var question = createQuestion(nextElement);
+	var type = jQuery('#TypeId' + numberOfApparitions).val();
+	var question = createQuestion(nextElement, type);
 	jQuery('#addQuestionDivId').append(question);
 }
 
 function addSurvey() {
 	var surveyJsonString = createSurveyJson();
-	var jsonSurvey = JSON.parse(surveyJsonString);
-	console.log(jsonSurvey);
+	// var jsonSurvey = JSON.parse(surveyJsonString);
+	console.log(surveyJsonString);
 	$.ajax({
 		type : "POST",
 		url : "/Surveys/addSurvey",
-		data : jsonSurvey,
+		data : surveyJsonString,
 		accept : "application/json",
-		success : function(data, textStatus, jqXHR) {
-			goToPage("/Surveys", false);
-			// data - response from server
-		},
-		error : function(response) {
-			console.log("Error:", response);
-		},
 		dataType : "json",
-		contentType : "application/json; charset=utf-8"
+		contentType : "application/json; charset=utf-8",
+		success : function(result) {
+			handleErrors(result, "/Surveys");
+		},
+		error : function(error) {
+			handleErrors(error, "");
+		}
 	});
-}
-
-function getNumberOfAparitions() {
-	appears = 0;
-	$('*[id*=textQuestion]:visible').each(function() {
-		appears++;
-	});
-
-	return appears;
 }
 
 function createSurveyJson() {
 	var numberOfQuestions = getNumberOfAparitions();
 	// add name and description to json
-	var surveyJson = '{ "survey" : { "name" :"'
-			+ jQuery('#nameTextInput').val() + '",';
+	var surveyJson = '{ "name" :"' + jQuery('#nameTextInput').val() + '",';
 	surveyJson += '"description" :"' + jQuery('#descriptionTextInput').val()
 			+ '",';
+	surveyJson += '"createUser" : "' + jQuery('#userName').val() +'",';
 	surveyJson += '"questions" : [';
 
 	// iterate all the questions
 	for (var i = 1; i <= numberOfQuestions; i++) {
-		if (numberOfQuestions == i) {
-			surveyJson += '{"text" : "' + jQuery('#textQuestion' + i).val()
-					+ '","type" : "' + jQuery('#TypeId' + i).val()
-					+ '","possibleAnswers":"'
+		var type = jQuery('#TypeId' + i).val();
+		surveyJson += '{"text" : "' + jQuery('#textQuestion' + i).val()
+				+ '","type" : "' + type + '"';
+		if (type != "FREE") {
+			surveyJson += ',"possibleAnswers":"'
 					+ jQuery('#textResponse' + i).val() + '"}';
-
 		} else {
-			surveyJson += '{"text" : "' + jQuery('#textQuestion' + i).val()
-					+ '","type" : "' + jQuery('#TypeId' + i).val()
-					+ '","possibleAnswers":"'
-					+ jQuery('#textResponse' + i).val() + '"},';
+			surveyJson += ',"possibleAnswers":" "}';
+		}
+		if (numberOfQuestions != i) {
+			surveyJson += ',';
 
 		}
 	}
-	surveyJson += '] } }'
-	console.log(surveyJson);
+	surveyJson += '] }'
 
 	return surveyJson;
 }
