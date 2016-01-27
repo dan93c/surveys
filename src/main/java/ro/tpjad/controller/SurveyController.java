@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import ro.tpjad.entity.JsonEntityResponse;
 import ro.tpjad.entity.Survey;
+import ro.tpjad.entity.SurveyException;
 import ro.tpjad.entity.SurveyResult;
 import ro.tpjad.service.SurveyResultService;
 import ro.tpjad.service.SurveyService;
@@ -33,8 +34,10 @@ public class SurveyController {
 			survey.setCreateTime(new Date());
 			surveyService.addSurvey(survey);
 			response = new JsonEntityResponse(true);
-		} catch (Exception ex) {
+		} catch (SurveyException ex) {
 			response = new JsonEntityResponse(false, ex.getMessage());
+		} catch (Exception ex) {
+			response = new JsonEntityResponse(false, "Internal server error!");
 		}
 		return response;
 	}
@@ -45,8 +48,10 @@ public class SurveyController {
 		try {
 			surveyResultService.addSurveyResult(surveyResult);
 			response = new JsonEntityResponse(true);
-		} catch (Exception ex) {
+		} catch (SurveyException ex) {
 			response = new JsonEntityResponse(false, ex.getMessage());
+		} catch (Exception ex) {
+			response = new JsonEntityResponse(false, "Internal server error!");
 		}
 		return response;
 	}
@@ -57,8 +62,10 @@ public class SurveyController {
 		try {
 			List<Survey> surveys = surveyService.getAllSurveys();
 			response = new JsonEntityResponse(true, null, surveys);
-		} catch (Exception ex) {
+		} catch (SurveyException ex) {
 			response = new JsonEntityResponse(false, ex.getMessage());
+		} catch (Exception ex) {
+			response = new JsonEntityResponse(false, "Internal server error!");
 		}
 		return response;
 	}
@@ -69,8 +76,10 @@ public class SurveyController {
 		try {
 			List<SurveyResult> results = surveyResultService.getAllSurveyResults();
 			response = new JsonEntityResponse(true, null, results);
-		} catch (Exception ex) {
+		} catch (SurveyException ex) {
 			response = new JsonEntityResponse(false, ex.getMessage());
+		} catch (Exception ex) {
+			response = new JsonEntityResponse(false, "Internal server error!");
 		}
 		return response;
 	}
@@ -81,8 +90,10 @@ public class SurveyController {
 		try {
 			SurveyResult result = surveyResultService.findSurveyResult(Long.parseLong(id));
 			response = new JsonEntityResponse(true, null, result);
-		} catch (Exception ex) {
+		} catch (SurveyException ex) {
 			response = new JsonEntityResponse(false, ex.getMessage());
+		} catch (Exception ex) {
+			response = new JsonEntityResponse(false, "Internal server error!");
 		}
 		return response;
 	}
@@ -93,24 +104,30 @@ public class SurveyController {
 		try {
 			Survey survey = surveyService.findSurvey(Long.parseLong(id));
 			response = new JsonEntityResponse(true, null, survey);
-		} catch (Exception ex) {
+		} catch (SurveyException ex) {
 			response = new JsonEntityResponse(false, ex.getMessage());
+		} catch (Exception ex) {
+			response = new JsonEntityResponse(false, "Internal server error!");
 		}
 		return response;
 	}
 
-//	@RequestMapping(value = "/deleteSurvey", method = RequestMethod.POST)
-//	public @ResponseBody List<Survey> deleteSurvey(@RequestBody Survey survey) {
-//		JsonEntityResponse response = null;
-//		try {
-//			surveyService.deleteSurvey(survey);
-//
-//			return surveyService.getAllSurveys();
-//			response = new JsonEntityResponse(true);
-//		} catch (Exception ex) {
-//			response = new JsonEntityResponse(false, ex.getMessage());
-//		}
-//		return response;
-//	}
+	@RequestMapping(value = "/deleteSurvey", method = RequestMethod.POST)
+	public @ResponseBody JsonEntityResponse deleteSurvey(@RequestParam(value = "id") String id) {
+		JsonEntityResponse response = null;
+		try {
+
+			Survey survey = new Survey();
+			survey.setId(Long.parseLong(id));
+			surveyService.deleteSurvey(survey);
+
+			response = new JsonEntityResponse(true);
+		} catch (SurveyException ex) {
+			response = new JsonEntityResponse(false, ex.getMessage());
+		} catch (Exception ex) {
+			response = new JsonEntityResponse(false, "Internal server error!");
+		}
+		return response;
+	}
 
 }

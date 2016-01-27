@@ -26,7 +26,7 @@ function appendSurveysToTable(surveys) {
 				+ currentSurvey.name
 				+ '<td class="centeralign"><button onclick="openSurvey('
 				+ currentSurvey.id
-				+ ');">Open</button></td></tr>';
+				+ ');">Open</button>&nbsp;<button onclick="deleteSurvey('+currentSurvey.id+');">Delete</button></td></tr>';
 		jQuery('#surveysTable tr:last').after(tableRow);
 	}
 }
@@ -34,4 +34,12 @@ function appendSurveysToTable(surveys) {
 function openSurvey(id) {
 	sessionStorage.setItem('surveyId',id);
 	goToPage("main.html", false);
+}
+
+function deleteSurvey(id) {
+	$.post("/Surveys/deleteSurvey", {
+		"id" : id
+	}, function(result) {
+		handleErrors(result, "Surveys.html");
+	});
 }
