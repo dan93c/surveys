@@ -2,6 +2,8 @@ USE `surveys_db`;
 
 insert into `surveys`(SVYNAME, SVYDSC, SVYCRTTIME, SVYCRTUSER) 
 	values('Testeaza-ti capacitatea de concentrare', '', '2016-01-08 18:34:35', 'admin');
+insert into `surveys`(SVYNAME, SVYDSC, SVYCRTTIME, SVYCRTUSER) 
+	values('Satisfactie clienti servicii RCS-RDS', '', '2016-01-28 14:34:00', 'admin');
 select * from surveys;
 
 insert into `questions` (QSTTXT, QSTTYPE, QSTANS, QSTCRTTIME, QSTCRTUSER, QSTSVY)
@@ -34,6 +36,30 @@ insert into `questions` (QSTTXT, QSTTYPE, QSTANS, QSTCRTTIME, QSTCRTUSER, QSTSVY
 insert into `questions` (QSTTXT, QSTTYPE, QSTANS, QSTCRTTIME, QSTCRTUSER, QSTSVY)
 	values('Cand cineva vine in biroul meu se simte foarte confortabil.', 'SELECT_ONE', 
     'Total adevarat;Destul de adevarat;Mai mult fals;Total fals', '2016-01-08 18:34:35', 'admin', 1);
+
+insert into `questions` (QSTTXT, QSTTYPE, QSTANS, QSTCRTTIME, QSTCRTUSER, QSTSVY)
+	values('Alegeti serviciile contractate de la RCS-RDS', 'SELECT_MULTIPLE', 
+    'Internet;Televiziune;Telefonie fixa;Telefonie mobila', '2016-01-28 14:34:00', 'admin', 2);
+insert into `questions` (QSTTXT, QSTTYPE, QSTANS, QSTCRTTIME, QSTCRTUSER, QSTSVY)
+	values('Ati intampinat probleme la instalarea serviciilor? Daca da va rugam detaliati.', 'FREE_TEXT', 
+    null, '2016-01-28 14:34:00', 'admin', 2);
+insert into `questions` (QSTTXT, QSTTYPE, QSTANS, QSTCRTTIME, QSTCRTUSER, QSTSVY)
+	values('In cazul in care ati intampinat probleme in utilizarea serviciilor care a fost frecventa acestora?', 'SELECT_ONE', 
+    'Deloc;Saptamanal;Lunar;Zilnic', '2016-01-28 14:34:00', 'admin', 2);
+insert into `questions` (QSTTXT, QSTTYPE, QSTANS, QSTCRTTIME, QSTCRTUSER, QSTSVY)
+	values('Ce pasi ati urmat daca serviciul/serviciile contractate de dumneavoastra nu a/au functionat la parametri contractati?', 'SELECT_MULTIPLE', 
+    'Ati sunat la Call Center;Ati sunat la responsabilul de contract;
+     Ati trimis mail la adresa de suport;Ati asteptat remedierea fara a intreprinde nici o actiune', 
+     '2016-01-28 14:34:00', 'admin', 2); 
+insert into `questions` (QSTTXT, QSTTYPE, QSTANS, QSTCRTTIME, QSTCRTUSER, QSTSVY)
+	values('Cum apreciati calitatea asistentei tehnice oferite de RCS-RDS?', 'SELECT_ONE', 
+    'Foarte buna;Buna;Slaba', '2016-01-28 14:34:00', 'admin', 2);
+insert into `questions` (QSTTXT, QSTTYPE, QSTANS, QSTCRTTIME, QSTCRTUSER, QSTSVY)
+	values('Ati recomanda serviciile RCS-RDS?', 'SELECT_ONE', 
+    'Da;Nu;Poate', '2016-01-28 14:34:00', 'admin', 2);
+insert into `questions` (QSTTXT, QSTTYPE, QSTANS, QSTCRTTIME, QSTCRTUSER, QSTSVY)
+	values('Daca aveti propuneri de imbunatatire a serviciilor va rugam sa detaliati.', 'FREE_TEXT', 
+    null, '2016-01-28 14:34:00', 'admin', 2);
 select * from `questions`;
 
 insert into `survey_results`(SVRCRTTIME, SVRCRTUSER, SVRSVY) values('2016-01-08 18:50:35', 'ovi', 1);

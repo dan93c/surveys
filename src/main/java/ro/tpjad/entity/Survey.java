@@ -108,11 +108,15 @@ public class Survey extends BaseEntity {
 
 	@OneToMany(mappedBy = "survey", cascade = CascadeType.ALL)
 	public void setQuestions(List<Question> questions) {
+		for(Question question:questions){
+			question.setSurvey(this);
+		}
 		this.questions = questions;
 	}
 
 	public void addQuestion(Question question) {
 		this.questions.add(question);
+		question.setSurvey(this);
 	}
 
 	@Override

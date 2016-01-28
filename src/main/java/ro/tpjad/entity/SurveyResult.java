@@ -81,13 +81,13 @@ public class SurveyResult extends BaseEntity {
 	}
 
 	@ManyToOne
-	@JoinColumn(name = "SVYID")
+	@JoinColumn(name = "SRVSVY")
 	public Survey getSurvey() {
 		return survey;
 	}
 
 	@ManyToOne
-	@JoinColumn(name = "SVYID")
+	@JoinColumn(name = "SRVSVY")
 	public void setSurvey(Survey survey) {
 		this.survey = survey;
 	}

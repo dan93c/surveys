@@ -1,5 +1,6 @@
 package ro.tpjad.entity;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
@@ -123,7 +124,10 @@ public class Question extends BaseEntity {
 
 	@Transient
 	public List<String> getPossibleAnswersList() {
-		return Arrays.asList(possibleAnswers.split(";"));
+		if (possibleAnswers != null) {
+			return Arrays.asList(possibleAnswers.split(";"));
+		} else
+			return new ArrayList<String>();
 	}
 
 	@Transient

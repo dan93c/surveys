@@ -99,7 +99,7 @@ public class SurveyController {
 	}
 
 	@RequestMapping(value = "/findSurvey", method = RequestMethod.GET)
-	public @ResponseBody JsonEntityResponse findSurvey(@RequestParam String id) {
+	public @ResponseBody JsonEntityResponse findSurvey(@RequestParam(value = "id") String id) {
 		JsonEntityResponse response = null;
 		try {
 			Survey survey = surveyService.findSurvey(Long.parseLong(id));
