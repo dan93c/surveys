@@ -70,24 +70,24 @@ public class SurveyResult extends BaseEntity {
 		return super.getCreateUser();
 	}
 
-	@Column(name = "SVRUPDUSER")
+	@Column(name = "SRVUPDUSER")
 	public void setUpdateUser(String updateUser) {
 		super.setCreateUser(updateUser);
 	}
 
-	@Column(name = "SVRUPDUSER")
+	@Column(name = "SRVUPDUSER")
 	public String getUpdateUser() {
 		return super.getUpdateUser();
 	}
 
 	@ManyToOne
-	@JoinColumn(name = "SRVSVY")
+	@JoinColumn(name = "SVRSVY")
 	public Survey getSurvey() {
 		return survey;
 	}
 
 	@ManyToOne
-	@JoinColumn(name = "SRVSVY")
+	@JoinColumn(name = "SVRSVY")
 	public void setSurvey(Survey survey) {
 		this.survey = survey;
 	}

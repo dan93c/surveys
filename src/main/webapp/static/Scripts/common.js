@@ -7,7 +7,7 @@ function goToPage(page, fromFirstPage) {
 	}
 }
 
-function createQuestion(number, type) {
+function createQuestion(number) {
 	var question = '<div class="form-group">';
 	question += '<label class="col-md-4 control-label" for="textQuestion'
 			+ number + '">Question' + number + '</label>';
@@ -30,20 +30,6 @@ function createQuestion(number, type) {
 	question += '</select>';
 	question += '</div>';
 	question += '</div>';
-	if (type !== "FREE_TEXT") {
-		question += '<div id="responseDiv' + number + '" class="form-group">';
-		question += '<label class="col-md-4 control-label" for="textResponse'
-				+ number + '">Response</label>';
-		question += '<div class="col-md-6">';
-		question += '<input id="textResponse'
-				+ number
-				+ '" name="textResponse'
-				+ number
-				+ '" type="text" placeholder="" class="form-control input-md" required="">';
-		question += '</div>';
-		question += '</div>';
-
-	}
 	question += '</div>';
 
 	return question;
@@ -56,7 +42,8 @@ function changeType(element) {
 	var number = getNumberOfAparitions();
 	if (type != "FREE_TEXT") {
 		if (document.getElementById("responseDiv" + number) == null) {
-			responseDiv += '<div id="responseDiv' + number + '" class="form-group">';
+			responseDiv += '<div id="responseDiv' + number
+					+ '" class="form-group">';
 			responseDiv += '<label class="col-md-4 control-label" for="textResponse'
 					+ number + '">Answer</label>';
 			responseDiv += '<div class="col-md-6">';
@@ -91,10 +78,10 @@ function getNumberOfAparitions() {
 	return appears;
 }
 
-function handleErrors(result, redirectPage){
-	if(result.success === false){
-		sweetAlert('Error!', result.errorMessage , 'error');
-	}else{
+function handleErrors(result, redirectPage) {
+	if (result.success === false) {
+		sweetAlert('Error!', result.errorMessage, 'error');
+	} else {
 		swal({
 			title : "Success!",
 			text : result.errorMessage,
@@ -102,10 +89,9 @@ function handleErrors(result, redirectPage){
 			showCancelButton : false,
 			confirmButtonText : "OK",
 			closeOnConfirm : true
-		},
-		function() {
+		}, function() {
 			goToPage(redirectPage, false);
 		});
-		
+
 	}
 }

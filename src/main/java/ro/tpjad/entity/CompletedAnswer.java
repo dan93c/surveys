@@ -100,13 +100,13 @@ public class CompletedAnswer extends BaseEntity {
 	}
 
 	@ManyToOne
-	@JoinColumn(name = "ANSSRV")
+	@JoinColumn(name = "ANSSVR")
 	public SurveyResult getSurveyResult() {
 		return surveyResult;
 	}
 
 	@ManyToOne
-	@JoinColumn(name = "ANSSRV")
+	@JoinColumn(name = "ANSSVR")
 	public void setSurveyResult(SurveyResult surveyResult) {
 		this.surveyResult = surveyResult;
 	}

@@ -2,8 +2,7 @@ function addQuestion() {
 	var numberOfApparitions = getNumberOfAparitions();
 	var nextElement = numberOfApparitions + 1;
 
-	var type = jQuery('#TypeId' + numberOfApparitions).val();
-	var question = createQuestion(nextElement, type);
+	var question = createQuestion(nextElement);
 	jQuery('#addQuestionDivId').append(question);
 }
 
@@ -33,7 +32,7 @@ function createSurveyJson() {
 	var surveyJson = '{ "name" :"' + jQuery('#nameTextInput').val() + '",';
 	surveyJson += '"description" :"' + jQuery('#descriptionTextInput').val()
 			+ '",';
-	surveyJson += '"createUser" : "' + jQuery('#userName').val() +'",';
+	surveyJson += '"createUser" : "' + jQuery('#userName').val() + '",';
 	surveyJson += '"questions" : [';
 
 	// iterate all the questions
