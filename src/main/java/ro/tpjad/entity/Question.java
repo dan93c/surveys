@@ -35,88 +35,88 @@ public class Question extends BaseEntity {
 	}
 
 	@Id
-	@Column(name = "QSTID")
+	@Column(name = "ID")
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	public void setId(Long id) {
 		super.setId(id);
 	}
 
 	@Id
-	@Column(name = "QSTID")
+	@Column(name = "ID")
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	public Long getId() {
 		return super.getId();
 	}
 
-	@Column(name = "QSTCRTTIME")
+	@Column(name = "CRTTIME")
 	public void setCreateTime(Date createTime) {
 		super.setCreateTime(createTime);
 	}
 
-	@Column(name = "QSTCRTTIME")
+	@Column(name = "CRTTIME")
 	public Date getCreateTime() {
 		return super.getCreateTime();
 	}
 
-	@Column(name = "QSTUPDTIME")
+	@Column(name = "UPDTIME")
 	public void setUpdateTime(Date updateTime) {
 		super.setUpdateTime(updateTime);
 	}
 
-	@Column(name = "QSTUPDTIME")
+	@Column(name = "UPDTIME")
 	public Date getUpdateTime() {
 		return super.getUpdateTime();
 	}
 
-	@Column(name = "QSTCRTUSER")
+	@Column(name = "CRTUSER")
 	public void setCreateUser(String createUser) {
 		super.setCreateUser(createUser);
 	}
 
-	@Column(name = "QSTCRTUSER")
+	@Column(name = "CRTUSER")
 	public String getCreateUser() {
 		return super.getCreateUser();
 	}
 
-	@Column(name = "QSTUPDUSER")
+	@Column(name = "UPDUSER")
 	public void setUpdateUser(String updateUser) {
 		super.setCreateUser(updateUser);
 	}
 
-	@Column(name = "QSTUPDUSER")
+	@Column(name = "UPDUSER")
 	public String getUpdateUser() {
 		return super.getUpdateUser();
 	}
 
-	@Column(name = "QSTTXT")
+	@Column(name = "TXT")
 	public String getText() {
 		return text;
 	}
 
-	@Column(name = "QSTTXT")
+	@Column(name = "TXT")
 	public void setText(String text) {
 		this.text = text;
 	}
 
-	@Column(name = "QSTTYPE")
+	@Column(name = "QTYPE")
 	@Enumerated(EnumType.STRING)
 	public QuestionType getType() {
 		return type;
 	}
 
-	@Column(name = "QSTTYPE")
+	@Column(name = "QTYPE")
 	@Enumerated(EnumType.STRING)
 	public void setType(QuestionType type) {
 		this.type = type;
 	}
 
-	@Column(name = "QSTANS")
+	@Column(name = "ANS")
 	@JsonIgnore
 	public String getPossibleAnswers() {
 		return possibleAnswers;
 	}
 
-	@Column(name = "QSTANS")
+	@Column(name = "ANS")
 	@JsonIgnore
 	public void setPossibleAnswers(String possibleAnswers) {
 		this.possibleAnswers = possibleAnswers;
@@ -137,14 +137,13 @@ public class Question extends BaseEntity {
 
 	@JsonIgnore
 	@ManyToOne
-	@JoinColumn(name = "QSTSVY")
+	@JoinColumn(name = "SURVEY")
 	public Survey getSurvey() {
 		return survey;
 	}
 
-	@JsonIgnore
 	@ManyToOne
-	@JoinColumn(name = "QSTSVY")
+	@JoinColumn(name = "SURVEY")
 	public void setSurvey(Survey survey) {
 		this.survey = survey;
 	}

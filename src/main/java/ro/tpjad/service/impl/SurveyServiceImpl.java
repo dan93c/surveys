@@ -36,11 +36,10 @@ public class SurveyServiceImpl implements SurveyService {
 		} else {
 			for (Question question : questions) {
 				if (StringUtils.isBlank(question.getText())) {
-					throw new SurveyException("Please add text question!");
+					throw new SurveyException("Please add question text!");
 				} else if (question.getType() != QuestionType.FREE_TEXT
-						&& StringUtils.isBlank(question.getPossibleAnswers())) {
-					throw new SurveyException("Please add answers to "
-							+ question.getText() + " !");
+						&& StringUtils.isBlank(question.getText())) {
+					throw new SurveyException("Please add answers to question " + question.getText() + " !");
 				}
 			}
 		}

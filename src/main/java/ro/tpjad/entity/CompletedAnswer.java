@@ -11,6 +11,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "completed_answers")
 public class CompletedAnswer extends BaseEntity {
@@ -24,89 +26,90 @@ public class CompletedAnswer extends BaseEntity {
 	}
 
 	@Id
-	@Column(name = "ANSID")
+	@Column(name = "ID")
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	public void setId(Long id) {
 		super.setId(id);
 	}
 
 	@Id
-	@Column(name = "ANSID")
+	@Column(name = "ID")
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	public Long getId() {
 		return super.getId();
 	}
 
-	@Column(name = "ANSCRTTIME")
+	@Column(name = "CRTTIME")
 	public Date getCreateTime() {
 		return super.getCreateTime();
 	}
 
-	@Column(name = "ANSCRTTIME")
+	@Column(name = "CRTTIME")
 	public void setCreateTime(Date createTime) {
 		super.setCreateTime(createTime);
 	}
 
-	@Column(name = "ANSUPDTIME")
+	@Column(name = "UPDTIME")
 	public Date getUpdateTime() {
 		return super.getUpdateTime();
 	}
 
-	@Column(name = "ANSUPDTIME")
+	@Column(name = "UPDTIME")
 	public void setUpdateTime(Date updateTime) {
 		super.setUpdateTime(updateTime);
 	}
 
-	@Column(name = "ANSCRTUSER")
+	@Column(name = "CRTUSER")
 	public String getCreateUser() {
 		return super.getCreateUser();
 	}
 
-	@Column(name = "ANSCRTUSER")
+	@Column(name = "CRTUSER")
 	public void setCreateUser(String createUser) {
 		super.setCreateUser(createUser);
 	}
 
-	@Column(name = "ANSUPDUSER")
+	@Column(name = "UPDUSER")
 	public String getUpdateUser() {
 		return super.getUpdateUser();
 	}
 
-	@Column(name = "ANSUPDUSER")
+	@Column(name = "UPDUSER")
 	public void setUpdateUser(String updateUser) {
 		super.setUpdateUser(updateUser);
 	}
 
-	@Column(name = "ANSTXT")
+	@Column(name = "TXT")
 	public String getText() {
 		return text;
 	}
 
-	@Column(name = "ANSTXT")
+	@Column(name = "TXT")
 	public void setText(String text) {
 		this.text = text;
 	}
 
 	@ManyToOne
-	@JoinColumn(name = "ANSQST")
+	@JoinColumn(name = "QSTID")
 	public Question getQuestion() {
 		return question;
 	}
 
 	@ManyToOne
-	@JoinColumn(name = "ANSQST")
+	@JoinColumn(name = "QSTID")
 	public void setQuestion(Question question) {
 		this.question = question;
 	}
 
+	@JsonIgnore
 	@ManyToOne
-	@JoinColumn(name = "ANSSVR")
+	@JoinColumn(name = "SURVEY_RESULT")
 	public SurveyResult getSurveyResult() {
 		return surveyResult;
 	}
 
 	@ManyToOne
-	@JoinColumn(name = "ANSSVR")
+	@JoinColumn(name = "SURVEY_RESULT")
 	public void setSurveyResult(SurveyResult surveyResult) {
 		this.surveyResult = surveyResult;
 	}

@@ -28,75 +28,75 @@ public class Survey extends BaseEntity {
 	}
 
 	@Id
-	@Column(name = "SVYID")
+	@Column(name = "ID")
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	public void setId(Long id) {
 		super.setId(id);
 	}
 
 	@Id
-	@Column(name = "SVYID")
+	@Column(name = "ID")
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	public Long getId() {
 		return super.getId();
 	}
 
-	@Column(name = "SVYCRTTIME")
+	@Column(name = "CRTTIME")
 	public Date getCreateTime() {
 		return super.getCreateTime();
 	}
 
-	@Column(name = "SVYCRTTIME")
+	@Column(name = "CRTTIME")
 	public void setCreateTime(Date createTime) {
 		super.setCreateTime(createTime);
 	}
 
-	@Column(name = "SVYUPDTIME")
+	@Column(name = "UPDTIME")
 	public Date getUpdateTime() {
 		return super.getUpdateTime();
 	}
 
-	@Column(name = "SVYUPDTIME")
+	@Column(name = "UPDTIME")
 	public void setUpdateTime(Date updateTime) {
 		super.setUpdateTime(updateTime);
 	}
 
-	@Column(name = "SVYCRTUSER")
+	@Column(name = "CRTUSER")
 	public String getCreateUser() {
 		return super.getCreateUser();
 	}
 
-	@Column(name = "SVYCRTUSER")
+	@Column(name = "CRTUSER")
 	public void setCreateUser(String createUser) {
 		super.setCreateUser(createUser);
 	}
 
-	@Column(name = "SVYUPDUSER")
+	@Column(name = "UPDUSER")
 	public String getUpdateUser() {
 		return super.getUpdateUser();
 	}
 
-	@Column(name = "SVYUPDUSER")
+	@Column(name = "UPDUSER")
 	public void setUpdateUser(String updateUser) {
 		super.setUpdateUser(updateUser);
 	}
 
-	@Column(name = "SVYNAME")
+	@Column(name = "NAME")
 	public String getName() {
 		return name;
 	}
 
-	@Column(name = "SVYNAME")
+	@Column(name = "NAME")
 	public void setName(String name) {
 		this.name = name;
 	}
 
-	@Column(name = "SVYDSC")
+	@Column(name = "DESCR")
 	public String getDescription() {
 		return description;
 	}
 
-	@Column(name = "SVYDSC")
+	@Column(name = "DESCR")
 	public void setDescription(String description) {
 		this.description = description;
 	}
