@@ -17,9 +17,10 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
-import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.builder.ToStringBuilder;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Entity
 @Table(name = "QUESTIONS")
@@ -111,7 +112,7 @@ public class Question extends BaseEntity {
 	}
 
 	@Column(name = "ANS")
-	@JsonIgnore
+	@JsonProperty
 	public String getPossibleAnswers() {
 		return possibleAnswers;
 	}
@@ -130,11 +131,6 @@ public class Question extends BaseEntity {
 			return new ArrayList<String>();
 	}
 
-	@Transient
-	public void setPossibleAnswers(List<String> answers) {
-		this.possibleAnswers = StringUtils.join(answers, ";");
-	}
-
 	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name = "SURVEY")
@@ -146,6 +142,11 @@ public class Question extends BaseEntity {
 	@JoinColumn(name = "SURVEY")
 	public void setSurvey(Survey survey) {
 		this.survey = survey;
+	}
+
+	@Override
+	public String toString() {
+		return ToStringBuilder.reflectionToString(this);
 	}
 
 }

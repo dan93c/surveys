@@ -70,7 +70,8 @@ function createQuestionDiv(completedAnswer) {
 						+ '"> <input type="radio" name="radiosResponse'
 						+ completedAnswer.question.id + '" id="radiosResponse-'
 						+ i + '" value="'
-						+ completedAnswer.question.possibleAnswersList[i] + '">'
+						+ completedAnswer.question.possibleAnswersList[i]
+						+ '">'
 						+ completedAnswer.question.possibleAnswersList[i]
 						+ '</label>';
 			}
@@ -84,9 +85,11 @@ function createQuestionDiv(completedAnswer) {
 		questionDiv += '<label class="col-md-4 control-label" for="checkboxesResponse'
 				+ completedAnswer.question.id + '">Response</label>';
 		questionDiv += '<div class="col-md-4">';
-		for (var i = 0; i < completedAnswer.possibleAnswersList.length; i++) {
+		for (var i = 0; i < completedAnswer.question.possibleAnswersList.length; i++) {
 			questionDiv += '<div class="checkbox">';
-			if (completedAnswer.question.possibleAnswersList[i] == completedAnswer.text) {
+			// check if possible response is in answer
+			if (completedAnswer.text
+					.indexOf(completedAnswer.question.possibleAnswersList[i]) >= 0) {
 				questionDiv += '<label for="checkboxesResponse-' + i
 						+ '"> <input type="checkbox" name="checkboxesResponse'
 						+ completedAnswer.question.id
@@ -95,6 +98,7 @@ function createQuestionDiv(completedAnswer) {
 						+ '" checked>'
 						+ completedAnswer.question.possibleAnswersList[i]
 						+ '</label>';
+
 			} else {
 				questionDiv += '<label for="checkboxesResponse-' + i
 						+ '"> <input type="checkbox" name="checkboxesResponse'
