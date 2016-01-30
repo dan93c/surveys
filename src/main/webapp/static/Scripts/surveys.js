@@ -24,16 +24,16 @@ function appendSurveysToTable(surveys) {
 		var currentSurvey = surveys[i];
 		var tableRow = '<tr><td>' + currentSurvey.id + '</td><td>'
 				+ currentSurvey.name
-				+ '<td class="centeralign"><button onclick="openSurvey('
-				+ currentSurvey.id
-				+ ');">Open</button>&nbsp;<button onclick="deleteSurvey('+currentSurvey.id+');">Delete</button>'
-				+ '&nbsp;<button onclick="takeSurvey('+currentSurvey.id+');">Start</button></td></tr>';
+				+ '<td class="centeralign"><button onclick="deleteSurvey('
+				+ currentSurvey.id + ');">Delete</button>'
+				+ '&nbsp;<button onclick="takeSurvey(' + currentSurvey.id
+				+ ');">Start</button></td></tr>';
 		jQuery('#surveysTable tr:last').after(tableRow);
 	}
 }
 
 function openSurvey(id) {
-	sessionStorage.setItem('surveyId',id);
+	sessionStorage.setItem('surveyId', id);
 	goToPage("main.html", false);
 }
 
@@ -46,6 +46,6 @@ function deleteSurvey(id) {
 }
 
 function takeSurvey(id) {
-	sessionStorage.setItem('surveyId',id);
+	sessionStorage.setItem('surveyId', id);
 	goToPage("TakeSurvey.html", false);
 }

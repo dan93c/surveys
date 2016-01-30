@@ -76,7 +76,6 @@ function getSurveyQuestions() {
 		},
 		accept : "application/json",
 		success : function(response) {
-			console.log(response.data);
 			sessionStorage.setItem('survey', JSON.stringify(response.data));
 			appendQuestionsToSurvey(response.data);
 		},
@@ -87,7 +86,6 @@ function getSurveyQuestions() {
 }
 
 function appendQuestionsToSurvey(survey) {
-	console.log("append");
 	for (var i = 0; i < survey.questions.length; i++) {
 		var currentQuestion = survey.questions[i];
 		var question = createQuestionDiv(currentQuestion);
@@ -121,7 +119,7 @@ function createQuestionDiv(question) {
 			questionDiv += '<label for="radiosResponse-' + i
 					+ '"> <input type="radio" name="radiosResponse'
 					+ question.id + '" id="radiosResponse-' + i + '" value="'
-					+ question.possibleAnswersList[i] + '" checked="checked">'
+					+ question.possibleAnswersList[i] + '">'
 					+ question.possibleAnswersList[i] + '</label>';
 			questionDiv += '</div>';
 		}
